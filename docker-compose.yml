@@ -1,17 +1,17 @@
 version: '3'
 
 services:
+
   tomcat:
     build:
       context: ./
       dockerfile: DockerTomcat
     env_file:
       - .env
+       #Aqui se tiren els fitxers i despres amb el manager es mouen
     volumes:
-      - tomcat:/root #Aqui se tiren els fitxers i despres amb el manager es mouen
-      
-    expose:
-      - 80
+      - ./tomcat:/root
+
     ports:
       - 80:8080
 

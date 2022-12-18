@@ -1,7 +1,5 @@
 FROM tomcat
 
-
- # COPY ./confTomcat/manager /usr/local/tomcat/conf/Catalina/localhost
 #admin tomcat
 COPY ./confTomcat/users/tomcat-users.xml /usr/local/tomcat/conf
 COPY ./confTomcat/confApacheTomcat /usr/local/tomcat/conf
