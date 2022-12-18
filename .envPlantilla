@@ -1,0 +1,9 @@
+--> lo que despres hi ha una fletxe eliminar
+--> ¡¡¡ Se copia a destar en aquesta carpeta no cap supcarpeta!!!!!
+
+TYPE=mysql --> per mariadb es mysql
+CONTAINERNAME=mariadb --> nom del contendir
+DATABASE=db --> nom de la base de dades
+USER=root --> sempre es root per accedir amb root a tot
+PASSWORD=pass -> contrasenya de root
+

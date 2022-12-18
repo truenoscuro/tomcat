@@ -1,0 +1,13 @@
+FROM tomcat
+
+
+ # COPY ./confTomcat/manager /usr/local/tomcat/conf/Catalina/localhost
+#admin tomcat
+COPY ./confTomcat/users/tomcat-users.xml /usr/local/tomcat/conf
+COPY ./confTomcat/confApacheTomcat /usr/local/tomcat/conf
+RUN cp -avT $CATALINA_HOME/webapps.dist/manager $CATALINA_HOME/webapps/manager
+COPY ./confTomcat/permisosManager  $CATALINA_HOME/webapps/manager/META-INF
+#RUN tomcat lo primer es per fer proves que funciona
+
+CMD ["catalina.sh", "run"]
+

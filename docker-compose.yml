@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  tomcat:
+    build:
+      context: ./
+      dockerfile: DockerTomcat
+    env_file:
+      - .env
+    volumes:
+      - tomcat:/root #Aqui se tiren els fitxers i despres amb el manager es mouen
+      
+    expose:
+      - 80
+    ports:
+      - 80:8080
+
+  mariadb: #Es el CONTAINERNAME
+    image: mariadb:10.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${PASSWORD}
+      - MYSQL_DATABASE=${DATABASE}
+    volumes:
+      - ./importBBDD:/docker-entrypoint-initdb.d 
+      - ./baseDades:/var/lib/mysql
+    ports:
+      - 3306:3306
+  
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      - PMA_HOST=${CONTAINERNAME}
+    expose:
+      - 8083
+    ports:
+      - 8083:80
+  
+
+
+
+  
